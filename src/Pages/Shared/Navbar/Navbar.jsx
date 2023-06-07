@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import logo from '../../../../public/favicon.png'
+import Profile from './Profile';
 const Navbar = () => {
 
     const navOptions = <>
@@ -32,9 +33,9 @@ const Navbar = () => {
                     </ul>
                 </div>
 
-                <div className="navbar-end">
-                    <a className="btn">Button</a>
-                </div>
+                <Link className="navbar-end">
+                    <Profile/>
+                </Link>
             </div>
         </>
     );
