@@ -3,10 +3,10 @@ import logo from '../../../../public/favicon.png'
 const Navbar = () => {
 
     const navOptions = <>
-        <li><a>Home</a></li>
-        <li><a>Instructors</a> </li>
-        <li><a>Classes</a></li>
-        <li><a>Dashboard</a></li>
+        <li><Link to='/'>Home</Link></li>
+        <li><Link to='/instructors'>Instructors</Link> </li>
+        <li><Link to='/classes'>Classes</Link></li>
+        <li><Link to='/dashboard'>Dashboard</Link></li>
     </>
 
     return (
