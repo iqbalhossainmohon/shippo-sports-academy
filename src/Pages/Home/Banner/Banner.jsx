@@ -3,6 +3,7 @@ import cricket from '../../../assets/cricket.jpg'
 import football from '../../../assets/football.jpg'
 import badminton from '../../../assets/badminton.jpg'
 import tannisball from '../../../assets/tannisball.jpg'
+import tabalTannisball from '../../../assets/popularClass/tableTannisClass.webp'
 
 const Banner = () => {
     return (
@@ -38,6 +39,12 @@ const Banner = () => {
                             <h2 className='text-4xl font-bold text-yellow-400 ml-auto'>Many people consider <br /> tennis one of the <br /> hardest sports to learn</h2>
                         </div>
                     </div>
+                    <div id="slide6" className="carousel-item relative w-full">
+                        <img src={tabalTannisball} className="w-full" />
+                        <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+                            <h2 className='text-4xl font-bold text-yellow-400 ml-12'>Tennis is a game played <br /> with two opposing players <br /> singles player</h2>
+                        </div>
+                    </div>
                 </div>
                 <div className="flex justify-center w-full py-2 gap-2">
                     <a href="#slide1"><li></li></a>
@@ -45,6 +52,7 @@ const Banner = () => {
                     <a href="#slide3"><li></li></a>
                     <a href="#slide4"><li></li></a>
                     <a href="#slide5"><li></li></a>
+                    <a href="#slide6"><li></li></a>
                 </div>
             </div>
     );
