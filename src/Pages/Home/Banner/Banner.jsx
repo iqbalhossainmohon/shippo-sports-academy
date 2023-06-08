@@ -6,8 +6,7 @@ import tannisball from '../../../assets/tannisball.jpg'
 
 const Banner = () => {
     return (
-        <div>
-            <div>
+            <div className='mt-20'>
                 <div className="carousel w-full h-96">
                     <div id="slide1" className="carousel-item relative w-full">
                         <img src={handball} className="w-full" />
@@ -48,7 +47,6 @@ const Banner = () => {
                     <a href="#slide5"><li></li></a>
                 </div>
             </div>
-        </div>
     );
 };
 
