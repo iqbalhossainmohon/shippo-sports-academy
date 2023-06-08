@@ -11,7 +11,7 @@ const Instructors = ({ card }) => {
                     <div className="card-body text-center">
                         <h2 className="font-bold text-2xl text-center">{card.instructors_name}</h2>
                         <p>{card.instructors}</p>
-                        <p>Class: {card.sports_name}</p>
+                        <p className="font-bold">Class: {card.sports_name}</p>
                     </div>
                 </div>
             </div>
