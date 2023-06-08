@@ -3,7 +3,7 @@ import cricket from '../../../assets/cricket.jpg'
 import football from '../../../assets/football.jpg'
 import badminton from '../../../assets/badminton.jpg'
 import tannisball from '../../../assets/tannisball.jpg'
-import tabalTannisball from '../../../assets/popularClass/tableTannisClass.webp'
+import tabalTannisball from '../../../assets/tableTannisClass.webp'
 
 const Banner = () => {
     return (

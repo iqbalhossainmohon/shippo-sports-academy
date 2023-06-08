@@ -25,8 +25,8 @@ const SingleCard = ({card}) => {
             alt='Class'
           />
         </div>
-        <div className='font-semibold text-lg'>{card.name}</div>
-        <div className='font-bold text-xl text-neutral-500'>
+        <div className='font-semibold text-lg text-center'>{card.name}</div>
+        <div className='font-bold text-xl text-neutral-500 text-center'>
           Site: {card.sit}
         </div>
       </div>
