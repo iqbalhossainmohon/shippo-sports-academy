@@ -1,34 +1,14 @@
 
-
-const SingleCard = ({card}) => {
+const SingleCard = ({ card }) => {
   return (
-    <div className='col-span-1 cursor-pointer group'>
-      <div className='flex flex-col gap-2 w-full'>
-        <div
-          className='
-            aspect-square 
-            w-full 
-            relative 
-            overflow-hidden 
-            rounded-xl
-          '
-        >
-          <img
-            className='
-              object-cover 
-              h-full 
-              w-full 
-              group-hover:scale-110 
-              transition
-            '
-            src={card.image}
-            alt='Class'
-          />
-        </div>
-        <div className='font-semibold text-lg text-center'>{card.name}</div>
-        <div className='font-bold text-xl text-neutral-500 text-center'>
-          Site: {card.sit}
-        </div>
+
+    <div className="card card-side shadow-xl bg-gray-300">
+      <figure>
+        <img src={card.image} alt="Class" className="w-64 h-64" />
+      </figure>
+      <div className="card-body  my-auto">
+        <h2 className="card-title">{card.name}</h2>
+        <p>Site: {card.sit}</p>
       </div>
     </div>
   )
