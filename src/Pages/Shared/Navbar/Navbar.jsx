@@ -1,13 +1,18 @@
 import { Link } from 'react-router-dom';
 import logo from '../../../../public/favicon.png'
 import Profile from './Profile';
+// import useSelectClass from '../../../hooks/useSelectClass';
+
 const Navbar = () => {
+    // const [select] = useSelectClass();
 
     const navOptions = <>
         <li><Link to='/'>Home</Link></li>
         <li><Link to='/instructors'>Instructors</Link> </li>
         <li><Link to='/classes'>Classes</Link></li>
-        <li><Link to='/dashboard/selected-class'>Dashboard</Link></li>
+        <li><Link to='/dashboard/selected-class'>Dashboard
+            {/* <div className="badge badge-secondary">+{select?.length || 0}</div> */}
+        </Link></li>
     </>
 
     return (
@@ -35,7 +40,7 @@ const Navbar = () => {
                 </div>
 
                 <Link className="navbar-end">
-                    <Profile/>
+                    <Profile />
                 </Link>
             </div>
         </>
