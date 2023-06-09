@@ -7,7 +7,7 @@ const Navbar = () => {
         <li><Link to='/'>Home</Link></li>
         <li><Link to='/instructors'>Instructors</Link> </li>
         <li><Link to='/classes'>Classes</Link></li>
-        <li><Link to='/dashboard'>Dashboard</Link></li>
+        <li><Link to='/dashboard/selected-class'>Dashboard</Link></li>
     </>
 
     return (
@@ -27,6 +27,7 @@ const Navbar = () => {
                         <span className='font-semibold'><span className='text-green-500'>Shippo</span>  Sports Academy</span>
                     </Link>
                 </div>
+
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
                         {navOptions}
