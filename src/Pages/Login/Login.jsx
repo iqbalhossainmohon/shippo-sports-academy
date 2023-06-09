@@ -4,6 +4,7 @@ import { useContext } from 'react'
 import { AuthContext } from '../../providers/AuthProvider'
 import { toast } from 'react-hot-toast'
 import { TbFidgetSpinner } from 'react-icons/tb'
+import Swal from 'sweetalert2'
 
 const Login = () => {
 
@@ -20,6 +21,13 @@ const Login = () => {
       .then(result => {
         console.log(result.user)
         navigate(from, {replace: true})
+        Swal.fire({
+          position: 'top-center',
+          icon: 'success',
+          title: 'User Login Successful',
+          showConfirmButton: false,
+          timer: 1500
+        })
       })
       .catch(err => {
         console.log(err.message);
@@ -34,6 +42,13 @@ const Login = () => {
       .then(result => {
         console.log(result.user)
         navigate(from, {replace: true})
+        Swal.fire({
+          position: 'top-center',
+          icon: 'success',
+          title: 'User Login Successful',
+          showConfirmButton: false,
+          timer: 1500
+        })
       })
       .catch(err => {
         console.log(err.message);

@@ -33,6 +33,7 @@ export const router = createBrowserRouter([
     ]
   },
   
+      // Dashboard Route set up 
   {
     path: 'dashboard',
     element: <PrivateRoute><DashboardLayout/></PrivateRoute>,
