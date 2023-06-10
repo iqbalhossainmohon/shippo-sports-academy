@@ -8,7 +8,9 @@ const Sidebar = () => {
     const navigate = useNavigate()
     const { user, logOut } = useContext(AuthContext)
     const [isActive, setActive] = useState('false')
-    
+
+    const isAdmin = true;
+
     // Sidebar Responsive Handler
     const handleToggle = () => {
         setActive(!isActive)
@@ -42,9 +44,11 @@ const Sidebar = () => {
                 <div>
                     {/* Branding & Profile Info */}
                     <div>
-                        <div className='font-bold w-full hidden md:flex py-2 justify-center items-center bg-rose-100 mx-auto'>
-                        <span className='text-green-500'>Shippo-</span> Sports Academy
-                        </div>
+                        <Link to='/'>
+                            <div className='font-bold w-full hidden md:flex py-2 justify-center items-center bg-rose-100 rounded mx-auto'>
+                                <span className='text-green-500'>Shippo-</span> Sports Academy
+                            </div>
+                        </Link>
 
                         <div className='flex flex-col items-center mt-6 -mx-2'>
                             <Link to='/dashboard'>
@@ -72,76 +76,140 @@ const Sidebar = () => {
 
                     {/* Nav Items */}
                     <div className='flex flex-col justify-between flex-1 mt-6'>
-                        <nav>
-                            <>
-                                {/* Menu Links */}
-                                <NavLink
-                                    to='selected-class'
-                                    className={({ isActive }) =>
-                                        `flex items-center px-4 py-2 mt-2  transition-colors duration-300 transform  hover:bg-gray-300   hover:text-gray-700 ${isActive ? 'bg-gray-300  text-gray-700' : 'text-gray-600'
-                                        }`
-                                    }
-                                >
-                                    <span className='mx-4 font-medium'>My Selected Class</span>
-                                </NavLink>
 
-                                <NavLink
-                                    to='enrolled-class'
-                                    className={({ isActive }) =>
-                                        `flex items-center px-4 py-2 mt-2  transition-colors duration-300 transform  hover:bg-gray-300   hover:text-gray-700 ${isActive ? 'bg-gray-300  text-gray-700' : 'text-gray-600'
-                                        }`
-                                    }
-                                >
-                                    <span className='mx-4 font-medium'>My Enrolled Class</span>
-                                </NavLink>
-                                <NavLink
-                                    to='/paymentHistory'
-                                    className={({ isActive }) =>
-                                        `flex items-center px-4 py-2 mt-2  transition-colors duration-300 transform  hover:bg-gray-300   hover:text-gray-700 ${isActive ? 'bg-gray-300  text-gray-700' : 'text-gray-600'
-                                        }`
-                                    }
-                                >
-                                    {/* <BsFillHouseAddFill className='w-5 h-5' /> */}
+                        <>
+                            {/* Menu Links */}
+                            <ul>
 
-                                    <span className='mx-4 font-medium'>Payment History</span>
-                                </NavLink>
+                                {
+                                    isAdmin ? <>
+
+                                    <h2 className='text-gray-700 font-bold text-center bg-rose-300 py-2 rounded '>Admin</h2>
+                                    
+                                        <li>
+                                            <NavLink
+                                                to='add-class'
+                                                className={({ isActive }) =>
+                                                    `flex items-center px-4 py-2 mt-2  transition-colors duration-300 transform  hover:bg-gray-300   hover:text-gray-700 ${isActive ? 'bg-gray-300  text-gray-700' : 'text-gray-600'
+                                                    }`
+                                                }
+                                            >
+                                                <span className='mx-4 font-medium'>Add Class</span>
+                                            </NavLink>
+                                        </li>
+
+                                        <li>
+                                            <NavLink
+                                                to='all-users'
+                                                className={({ isActive }) =>
+                                                    `flex items-center px-4 py-2 mt-2  transition-colors duration-300 transform  hover:bg-gray-300   hover:text-gray-700 ${isActive ? 'bg-gray-300  text-gray-700' : 'text-gray-600'
+                                                    }`
+                                                }
+                                            >
+                                                <span className='mx-4 font-medium'>All Users</span>
+                                            </NavLink>
+                                        </li>
+                                        <li>
+                                            <NavLink
+                                                to='/my-class'
+                                                className={({ isActive }) =>
+                                                    `flex items-center px-4 py-2 mt-2  transition-colors duration-300 transform  hover:bg-gray-300   hover:text-gray-700 ${isActive ? 'bg-gray-300  text-gray-700' : 'text-gray-600'
+                                                    }`
+                                                }
+                                            >
+
+                                                <span className='mx-4 font-medium'>My Class</span>
+                                            </NavLink>
+                                        </li>
+
+                                    </> : <>
+
+                                    
+                                        <li>
+                                            <NavLink
+                                                to='selected-class'
+                                                className={({ isActive }) =>
+                                                    `flex items-center px-4 py-2 mt-2  transition-colors duration-300 transform  hover:bg-gray-300   hover:text-gray-700 ${isActive ? 'bg-gray-300  text-gray-700' : 'text-gray-600'
+                                                    }`
+                                                }
+                                            >
+                                                <span className='mx-4 font-medium'>My Selected Class</span>
+                                            </NavLink>
+                                        </li>
+
+                                        <li>
+                                            <NavLink
+                                                to='enrolled-class'
+                                                className={({ isActive }) =>
+                                                    `flex items-center px-4 py-2 mt-2  transition-colors duration-300 transform  hover:bg-gray-300   hover:text-gray-700 ${isActive ? 'bg-gray-300  text-gray-700' : 'text-gray-600'
+                                                    }`
+                                                }
+                                            >
+                                                <span className='mx-4 font-medium'>My Enrolled Class</span>
+                                            </NavLink>
+                                        </li>
+                                        <li>
+                                            <NavLink
+                                                to='/paymentHistory'
+                                                className={({ isActive }) =>
+                                                    `flex items-center px-4 py-2 mt-2  transition-colors duration-300 transform  hover:bg-gray-300   hover:text-gray-700 ${isActive ? 'bg-gray-300  text-gray-700' : 'text-gray-600'
+                                                    }`
+                                                }
+                                            >
+
+                                                <span className='mx-4 font-medium'>Payment History</span>
+                                            </NavLink>
+                                        </li>
+                                    </>
+                                }
+
+
+
+
+
 
                                 <hr className='mt-4 mb-2 border border-rose-300' />
 
-                                <NavLink
-                                    to='/'
-                                    className={({ isActive }) =>
-                                        `flex items-center px-4 py-2 mt-2  transition-colors duration-300 transform  hover:bg-gray-300   hover:text-gray-700 ${isActive ? 'bg-gray-300  text-gray-700' : 'text-gray-600'
-                                        }`
-                                    }
-                                >
-                                    <span className='mx-4 font-medium'>Home</span>
-                                </NavLink>
-                                <NavLink
-                                    to='/instructors'
-                                    className={({ isActive }) =>
-                                        `flex items-center px-4 py-2 mt-2  transition-colors duration-300 transform  hover:bg-gray-300   hover:text-gray-700 ${isActive ? 'bg-gray-300  text-gray-700' : 'text-gray-600'
-                                        }`
-                                    }
-                                >
-                                    <span className='mx-4 font-medium'>Instructors</span>
-                                </NavLink>
-                                <NavLink
-                                    to='/classes'
-                                    className={({ isActive }) =>
-                                        `flex items-center px-4 py-2 mt-2  transition-colors duration-300 transform  hover:bg-gray-300   hover:text-gray-700 ${isActive ? 'bg-gray-300  text-gray-700' : 'text-gray-600'
-                                        }`
-                                    }
-                                >
-                                    <span className='mx-4 font-medium'>Classes</span>
-                                </NavLink>
-                            </>
-                        </nav>
+                                <li>
+                                    <NavLink
+                                        to='/'
+                                        className={({ isActive }) =>
+                                            `flex items-center px-4 py-2 mt-2  transition-colors duration-300 transform  hover:bg-gray-300   hover:text-gray-700 ${isActive ? 'bg-gray-300  text-gray-700' : 'text-gray-600'
+                                            }`
+                                        }
+                                    >
+                                        <span className='mx-4 font-medium'>Home</span>
+                                    </NavLink>
+                                </li>
+                                <li>
+                                    <NavLink
+                                        to='/instructors'
+                                        className={({ isActive }) =>
+                                            `flex items-center px-4 py-2 mt-2  transition-colors duration-300 transform  hover:bg-gray-300   hover:text-gray-700 ${isActive ? 'bg-gray-300  text-gray-700' : 'text-gray-600'
+                                            }`
+                                        }
+                                    >
+                                        <span className='mx-4 font-medium'>Instructors</span>
+                                    </NavLink>
+                                </li>
+                                <li>
+                                    <NavLink
+                                        to='/classes'
+                                        className={({ isActive }) =>
+                                            `flex items-center px-4 py-2 mt-2  transition-colors duration-300 transform  hover:bg-gray-300   hover:text-gray-700 ${isActive ? 'bg-gray-300  text-gray-700' : 'text-gray-600'
+                                            }`
+                                        }
+                                    >
+                                        <span className='mx-4 font-medium'>Classes</span>
+                                    </NavLink>
+                                </li>
+                            </ul>
+                        </>
                     </div>
                 </div>
 
                 <div>
-                    
+
                     <button
                         onClick={handleLogOut}
                         className='flex w-full items-center px-4 py-2 mt-5 text-gray-600 hover:bg-gray-300   hover:text-gray-700 transition-colors duration-300 transform'

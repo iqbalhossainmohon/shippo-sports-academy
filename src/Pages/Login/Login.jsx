@@ -39,17 +39,37 @@ const Login = () => {
   // handle google signIn 
   const handleGoogleSignIn = () => {
     signInWithGoogle()
-      .then(result => {
-        console.log(result.user)
-        navigate(from, {replace: true})
-        Swal.fire({
-          position: 'top-center',
-          icon: 'success',
-          title: 'User Login Successful',
-          showConfirmButton: false,
-          timer: 1500
-        })
+    .then(result => {
+      const loggedUser = result.user
+      console.log(loggedUser)
+
+      const savedUser = { name: loggedUser.displayName, email: loggedUser.email }
+      fetch('http://localhost:5000/users', {
+        method: 'POST',
+        headers: {
+          'content-type':'application/json'
+        },
+        body: JSON.stringify(savedUser)
       })
+
+        .then(res => res.json())
+        .then(data => {
+          if (data.insertedId) {
+            
+            navigate(from, { replace: true })
+          }
+        })
+
+
+      // navigate(from, { replace: true })
+      Swal.fire({
+        position: 'top-center',
+        icon: 'success',
+        title: 'User Created  has been Successful',
+        showConfirmButton: false,
+        timer: 1500
+      })
+    })
       .catch(err => {
         console.log(err.message);
         setLoading(false);

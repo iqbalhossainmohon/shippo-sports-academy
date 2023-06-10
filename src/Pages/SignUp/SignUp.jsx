@@ -36,18 +36,48 @@ const SignUp = () => {
 
         createUser(email, password)
           .then(result => {
+
             console.log(result.user);
+
             updateUserProfile(name, imageUrl)
               .then(result => {
+
                 console.log(result.user)
-                navigate(from, { replace: true })
-                Swal.fire({
-                  position: 'top-center',
-                  icon: 'success',
-                  title: 'User Created  has been Successful',
-                  showConfirmButton: false,
-                  timer: 1500
+                const savedUser = { name: name, email: email }
+                console.log(savedUser);
+
+                fetch('http://localhost:5000/users', {
+                  method: 'POST',
+                  headers: {
+                    'content-type':'application/json'
+                  },
+                  body: JSON.stringify(savedUser)
                 })
+
+                  .then(res => res.json())
+                  .then(data => {
+                    if (data.insertedId) {
+                      Swal.fire({
+                        position: 'top-center',
+                        icon: 'success',
+                        title: 'User Created  has been Successful',
+                        showConfirmButton: false,
+                        timer: 1500
+                      })
+                      navigate(from, { replace: true })
+                    }
+                  })
+
+                  
+                  // Swal.fire({
+                  //   position: 'top-center',
+                  //   icon: 'success',
+                  //   title: 'User Created  has been Successful',
+                  //   showConfirmButton: false,
+                  //   timer: 1500
+                  // })
+                  // navigate(from, { replace: true })
+
               })
               .catch(err => {
                 console.log(err.message);
@@ -74,8 +104,28 @@ const SignUp = () => {
   const handleGoogleSignIn = () => {
     signInWithGoogle()
       .then(result => {
-        console.log(result.user)
-        navigate(from, { replace: true })
+        const loggedUser = result.user
+        console.log(loggedUser)
+
+        const savedUser = { name: loggedUser.displayName, email: loggedUser.email }
+        fetch('http://localhost:5000/users', {
+          method: 'POST',
+          headers: {
+            'content-type':'application/json'
+          },
+          body: JSON.stringify(savedUser)
+        })
+
+          .then(res => res.json())
+          .then(data => {
+            if (data.insertedId) {
+              
+              navigate(from, { replace: true })
+            }
+          })
+
+
+        // navigate(from, { replace: true })
         Swal.fire({
           position: 'top-center',
           icon: 'success',
