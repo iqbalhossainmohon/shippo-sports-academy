@@ -3,13 +3,19 @@ import { Link, NavLink, useNavigate } from 'react-router-dom'
 import { GrLogout } from 'react-icons/gr'
 import { AiOutlineBars } from 'react-icons/ai'
 import { AuthContext } from '../../../providers/AuthProvider'
+import useAdmin from '../../../hooks/useAdmin'
 
 const Sidebar = () => {
     const navigate = useNavigate()
     const { user, logOut } = useContext(AuthContext)
     const [isActive, setActive] = useState('false')
 
-    const isAdmin = true;
+
+    // const isAdmin = true;
+    const [isAdmin] = useAdmin();
+
+
+
 
     // Sidebar Responsive Handler
     const handleToggle = () => {
