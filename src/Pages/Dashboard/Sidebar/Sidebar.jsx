@@ -50,7 +50,7 @@ const Sidebar = () => {
                             </div>
                         </Link>
 
-                        <div className='flex flex-col items-center mt-6 -mx-2'>
+                        <div className='flex flex-col items-center mt-2 -mx-2'>
                             <Link to='/dashboard'>
                                 <img
                                     className='object-cover w-24 h-24 mx-2 rounded-full'
@@ -212,7 +212,7 @@ const Sidebar = () => {
 
                     <button
                         onClick={handleLogOut}
-                        className='flex w-full items-center px-4 py-2 mt-5 text-gray-600 hover:bg-gray-300   hover:text-gray-700 transition-colors duration-300 transform'
+                        className='flex w-full items-center px-4 py-2 mt-2 text-gray-600 hover:bg-gray-300   hover:text-gray-700 transition-colors duration-300 transform'
                     >
                         <GrLogout className='w-5 h-5' />
 
