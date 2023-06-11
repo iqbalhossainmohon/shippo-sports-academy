@@ -66,7 +66,7 @@ const Sidebar = () => {
                                 />
                             </Link>
                             <Link to='/dashboard'>
-                                <h4 className='mx-2 mt-2 font-medium text-gray-800  hover:underline'>
+                                <h4 className='mx-2 font-medium text-gray-800  hover:underline'>
                                     {user?.displayName}
                                 </h4>
                             </Link>
@@ -78,10 +78,10 @@ const Sidebar = () => {
                         </div>
                     </div>
 
-                    <hr className='mt-4 border border-rose-300' />
+                    <hr className='mt-2 border border-rose-300' />
 
                     {/* Nav Items */}
-                    <div className='flex flex-col justify-between flex-1 mt-6'>
+                    <div className='flex flex-col justify-between flex-1 mt-3'>
 
                         <>
                             {/* Menu Links */}
@@ -94,9 +94,20 @@ const Sidebar = () => {
                                     
                                         <li>
                                             <NavLink
+                                                to='selected-class'
+                                                className={({ isActive }) =>
+                                                    `flex items-center px-4 py-2 mt-1  transition-colors duration-300 transform  hover:bg-gray-300   hover:text-gray-700 ${isActive ? 'bg-gray-300  text-gray-700' : 'text-gray-600'
+                                                    }`
+                                                }
+                                            >
+                                                <span className='mx-4 font-medium'>My Selected Class</span>
+                                            </NavLink>
+                                        </li>
+                                        <li>
+                                            <NavLink
                                                 to='add-class'
                                                 className={({ isActive }) =>
-                                                    `flex items-center px-4 py-2 mt-2  transition-colors duration-300 transform  hover:bg-gray-300   hover:text-gray-700 ${isActive ? 'bg-gray-300  text-gray-700' : 'text-gray-600'
+                                                    `flex items-center px-4 py-2 mt-1  transition-colors duration-300 transform  hover:bg-gray-300   hover:text-gray-700 ${isActive ? 'bg-gray-300  text-gray-700' : 'text-gray-600'
                                                     }`
                                                 }
                                             >
@@ -108,7 +119,7 @@ const Sidebar = () => {
                                             <NavLink
                                                 to='all-users'
                                                 className={({ isActive }) =>
-                                                    `flex items-center px-4 py-2 mt-2  transition-colors duration-300 transform  hover:bg-gray-300   hover:text-gray-700 ${isActive ? 'bg-gray-300  text-gray-700' : 'text-gray-600'
+                                                    `flex items-center px-4 py-2 mt-1  transition-colors duration-300 transform  hover:bg-gray-300   hover:text-gray-700 ${isActive ? 'bg-gray-300  text-gray-700' : 'text-gray-600'
                                                     }`
                                                 }
                                             >
@@ -119,7 +130,7 @@ const Sidebar = () => {
                                             <NavLink
                                                 to='/my-class'
                                                 className={({ isActive }) =>
-                                                    `flex items-center px-4 py-2 mt-2  transition-colors duration-300 transform  hover:bg-gray-300   hover:text-gray-700 ${isActive ? 'bg-gray-300  text-gray-700' : 'text-gray-600'
+                                                    `flex items-center px-4 py-2 mt-1  transition-colors duration-300 transform  hover:bg-gray-300   hover:text-gray-700 ${isActive ? 'bg-gray-300  text-gray-700' : 'text-gray-600'
                                                     }`
                                                 }
                                             >
@@ -135,7 +146,7 @@ const Sidebar = () => {
                                             <NavLink
                                                 to='selected-class'
                                                 className={({ isActive }) =>
-                                                    `flex items-center px-4 py-2 mt-2  transition-colors duration-300 transform  hover:bg-gray-300   hover:text-gray-700 ${isActive ? 'bg-gray-300  text-gray-700' : 'text-gray-600'
+                                                    `flex items-center px-4 py-2 mt-1  transition-colors duration-300 transform  hover:bg-gray-300   hover:text-gray-700 ${isActive ? 'bg-gray-300  text-gray-700' : 'text-gray-600'
                                                     }`
                                                 }
                                             >
@@ -147,7 +158,7 @@ const Sidebar = () => {
                                             <NavLink
                                                 to='enrolled-class'
                                                 className={({ isActive }) =>
-                                                    `flex items-center px-4 py-2 mt-2  transition-colors duration-300 transform  hover:bg-gray-300   hover:text-gray-700 ${isActive ? 'bg-gray-300  text-gray-700' : 'text-gray-600'
+                                                    `flex items-center px-4 py-2 mt-1  transition-colors duration-300 transform  hover:bg-gray-300   hover:text-gray-700 ${isActive ? 'bg-gray-300  text-gray-700' : 'text-gray-600'
                                                     }`
                                                 }
                                             >
@@ -158,7 +169,7 @@ const Sidebar = () => {
                                             <NavLink
                                                 to='/paymentHistory'
                                                 className={({ isActive }) =>
-                                                    `flex items-center px-4 py-2 mt-2  transition-colors duration-300 transform  hover:bg-gray-300   hover:text-gray-700 ${isActive ? 'bg-gray-300  text-gray-700' : 'text-gray-600'
+                                                    `flex items-center px-4 py-2 mt-1  transition-colors duration-300 transform  hover:bg-gray-300   hover:text-gray-700 ${isActive ? 'bg-gray-300  text-gray-700' : 'text-gray-600'
                                                     }`
                                                 }
                                             >
@@ -180,7 +191,7 @@ const Sidebar = () => {
                                     <NavLink
                                         to='/'
                                         className={({ isActive }) =>
-                                            `flex items-center px-4 py-2 mt-2  transition-colors duration-300 transform  hover:bg-gray-300   hover:text-gray-700 ${isActive ? 'bg-gray-300  text-gray-700' : 'text-gray-600'
+                                            `flex items-center px-4 py-2 mt-1  transition-colors duration-300 transform  hover:bg-gray-300   hover:text-gray-700 ${isActive ? 'bg-gray-300  text-gray-700' : 'text-gray-600'
                                             }`
                                         }
                                     >
@@ -191,7 +202,7 @@ const Sidebar = () => {
                                     <NavLink
                                         to='/instructors'
                                         className={({ isActive }) =>
-                                            `flex items-center px-4 py-2 mt-2  transition-colors duration-300 transform  hover:bg-gray-300   hover:text-gray-700 ${isActive ? 'bg-gray-300  text-gray-700' : 'text-gray-600'
+                                            `flex items-center px-4 py-2 mt-1  transition-colors duration-300 transform  hover:bg-gray-300   hover:text-gray-700 ${isActive ? 'bg-gray-300  text-gray-700' : 'text-gray-600'
                                             }`
                                         }
                                     >
@@ -202,7 +213,7 @@ const Sidebar = () => {
                                     <NavLink
                                         to='/classes'
                                         className={({ isActive }) =>
-                                            `flex items-center px-4 py-2 mt-2  transition-colors duration-300 transform  hover:bg-gray-300   hover:text-gray-700 ${isActive ? 'bg-gray-300  text-gray-700' : 'text-gray-600'
+                                            `flex items-center px-4 py-2 mt-1  transition-colors duration-300 transform  hover:bg-gray-300   hover:text-gray-700 ${isActive ? 'bg-gray-300  text-gray-700' : 'text-gray-600'
                                             }`
                                         }
                                     >
@@ -218,7 +229,7 @@ const Sidebar = () => {
 
                     <button
                         onClick={handleLogOut}
-                        className='flex w-full items-center px-4 py-2 mt-2 text-gray-600 hover:bg-gray-300   hover:text-gray-700 transition-colors duration-300 transform'
+                        className='flex w-full items-center px-4 py-2 mt-1 text-gray-600 hover:bg-gray-300   hover:text-gray-700 transition-colors duration-300 transform'
                     >
                         <GrLogout className='w-5 h-5' />
 

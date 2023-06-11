@@ -3,11 +3,12 @@ import useAxiosSecure from './useAxiosSecure';
 import useAuth from './useAuth';
 
 const useSelectClass = () =>{
-    const {user} = useAuth();
+    const {user, loading} = useAuth();
     const [axiosSecure] = useAxiosSecure();
 
     const { refetch, data: select = [] } = useQuery({
         queryKey: [ 'select', user?.email ],
+        enabled: !loading,
         
         // 
         queryFn: async ()=>{
