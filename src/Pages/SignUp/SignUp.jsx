@@ -47,7 +47,7 @@ const SignUp = () => {
                 const savedUser = { name: name, email: email }
                 console.log(savedUser);
 
-                fetch('http://localhost:5000/users', {
+                fetch('https://shippo-sports-server-iqbalhossainmohon.vercel.app/users', {
                   method: 'POST',
                   headers: {
                     'content-type': 'application/json'
@@ -109,7 +109,7 @@ const SignUp = () => {
         console.log(loggedUser)
 
         const savedUser = { name: loggedUser.displayName, email: loggedUser.email }
-        fetch('http://localhost:5000/users', {
+        fetch('https://shippo-sports-server-iqbalhossainmohon.vercel.app/users', {
           method: 'POST',
           headers: {
             'content-type': 'application/json'

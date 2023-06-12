@@ -4,7 +4,7 @@ import axios from "axios";
 import useAuth from "./useAuth";
 
 const axiosSecure = axios.create({
-    baseURL: 'http://localhost:5000'
+    baseURL: 'https://shippo-sports-server-iqbalhossainmohon.vercel.app'
 });
 
 const useAxiosSecure = ()=>{

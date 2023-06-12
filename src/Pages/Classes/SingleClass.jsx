@@ -17,7 +17,7 @@ const SingleCard = ({ card }) => {
     console.log(card);
     if (user && user.email) {
       const selectClass = {classId: _id, name, image,instructors_name, price, email: user.email}
-      fetch('http://localhost:5000/select',{
+      fetch('https://shippo-sports-server-iqbalhossainmohon.vercel.app/select',{
         method: 'POST',
         headers: {
           'content-type': 'application/json'
