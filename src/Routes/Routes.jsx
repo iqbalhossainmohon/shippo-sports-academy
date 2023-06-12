@@ -14,6 +14,7 @@ import AllUsers from "../Pages/Dashboard/AllUsers/AllUsers";
 import AddClass from "../Pages/Dashboard/AddClass/AddClass";
 import AdminRoute from "./AdminRoute";
 import MyClass from "../Pages/Dashboard/MyClass/MyClass";
+import Payment from "../Pages/Dashboard/Payment/Payment";
 
 
 export const router = createBrowserRouter([
@@ -50,6 +51,13 @@ export const router = createBrowserRouter([
         path: 'enrolled-class',
         element: <EnrolledClass/>
       },
+      {
+        path: 'payment',
+        element: <Payment/>
+      },
+
+
+// Admin Routes
       {
         path: 'all-users',
         element: <AdminRoute><AllUsers/></AdminRoute>
