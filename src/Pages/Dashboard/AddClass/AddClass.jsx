@@ -1,6 +1,7 @@
 import { useForm } from 'react-hook-form'
 import useAxiosSecure from '../../../hooks/useAxiosSecure';
 import Swal from 'sweetalert2';
+import { Helmet } from 'react-helmet-async';
 
 const img_hosting_token = import.meta.env.VITE_IMGBB_key;
 const AddClass = () => {
@@ -18,32 +19,35 @@ const AddClass = () => {
         })
             .then(res => res.json())
             .then(imgResponse => {
-                if(imgResponse){
+                if (imgResponse) {
                     const imgUrl = imgResponse.data.display_url;
-                    const {name, instructors_name, price, seats} = data;
-                    const newClass = {name, instructors_name, price: parseFloat(price), seats, image: imgUrl}
+                    const { name, instructors_name, price, seats } = data;
+                    const newClass = { name, instructors_name, price: parseFloat(price), seats, image: imgUrl }
                     console.log(newClass);
                     axiosSecure.post('/classes', newClass)
-                    .then(data=>{
-                        console.log('after posting new Class', data.data);
-                        if(data.data.insertedId){
-                            reset();
-                            Swal.fire({
-                                position: 'top-center',
-                                icon: 'success',
-                                title: 'New Class added Successful',
-                                showConfirmButton: false,
-                                timer: 1500
-                              })
-                        }
-                    })
+                        .then(data => {
+                            console.log('after posting new Class', data.data);
+                            if (data.data.insertedId) {
+                                reset();
+                                Swal.fire({
+                                    position: 'top-center',
+                                    icon: 'success',
+                                    title: 'New Class added Successful',
+                                    showConfirmButton: false,
+                                    timer: 1500
+                                })
+                            }
+                        })
                 }
             })
     };
-    
+
 
     return (
         <div>
+            <Helmet>
+                <title>Add Class - Shippo Sports Academy</title>
+            </Helmet>
             <h2 className="text-3xl font-bold text-center mt-8 mb-4">Add a New Class</h2>
 
             <form onSubmit={handleSubmit(onSubmit)}>

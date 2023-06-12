@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import { GrUserAdmin } from "react-icons/gr";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import { Helmet } from "react-helmet-async";
 
 const AllUsers = () => {
 
@@ -33,6 +34,9 @@ const AllUsers = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>All Users - Shippo Sports Academy</title>
+            </Helmet>
             <h2 className="text-2xl font-bold my-8">Total Users: {users.length}</h2>
 
             <div className="overflow-x-auto">
@@ -53,8 +57,8 @@ const AllUsers = () => {
                                 <td>{user.name}</td>
                                 <td>{user.email}</td>
                                 <td>{user.role === 'admin' ? 'admin' :
-                                    <button onClick={()=> handleMakeAdmin(user)} className="btn btn-ghost bg-rose-400"><GrUserAdmin size={20}/></button>
-                                    }
+                                    <button onClick={() => handleMakeAdmin(user)} className="btn btn-ghost bg-rose-400"><GrUserAdmin size={20} /></button>
+                                }
                                 </td>
                             </tr>)
                         }
